@@ -1,0 +1,11 @@
+{
+  "name": "wix-ui-lib-sample-app",
+  "version": "0.0.1",
+  "devDependencies": {
+    "express": "~4.1.1",
+    "nodemon": "^1.8.1"
+  },
+  "scripts": {
+    "start": "nodemon start.js"
+  }
+}
