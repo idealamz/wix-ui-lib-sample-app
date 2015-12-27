@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+
+    <script src="/node_modules/react/dist/react-with-addons.js"></script>
+    <script src="/node_modules/requirejs/require.js"></script>
+    <script src="/config.requirejs.js"></script>
+    <script>
+        require(['react', 'jquery', 'settings/index'], function (React, $, settings) {
+            'use strict';
+            $(document).ready(function() {
+                React.render(React.createElement(settings), $('#root').get(0));
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <link rel="stylesheet" href="index.css"/>
+</body>
+</html>

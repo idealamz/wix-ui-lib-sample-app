@@ -1,0 +1,34 @@
+<rt-require dependency="UI" as="UI"/>
+<rt-require dependency="settings/pages/general/index" as="generalPage"/>
+<rt-require dependency="settings/pages/style/index" as="stylePage"/>
+<rt-require dependency="settings/pages/sync/index" as="syncPage"/>
+
+
+<div id="settings">
+    <UI.tabs.holder defaultTab="first" class="top" onChange="(newVal)=>console.log(newVal + ' selected')">
+
+        <UI.tabs.header>
+            <UI.tabs.label for="first" class="first">General Settings</UI.tabs.label>
+            <UI.tabs.label for="second" class="second">Style Settings</UI.tabs.label>
+            <UI.tabs.label for="third" class="third">Sync Options</UI.tabs.label>
+        </UI.tabs.header>
+
+        <UI.tabs.content>
+
+            <UI.tabs.tab name="first" class="settings-tab">
+                <generalPage/>
+            </UI.tabs.tab>
+
+            <UI.tabs.tab name="second" class="settings-tab">
+                <stylePage/>
+            </UI.tabs.tab>
+
+            <UI.tabs.tab name="third" class="settings-tab">
+                <syncPage/>
+            </UI.tabs.tab>
+
+        </UI.tabs.content>
+
+    </UI.tabs.holder>
+</div>
+

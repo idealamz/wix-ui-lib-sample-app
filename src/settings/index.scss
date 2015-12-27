@@ -1,0 +1,17 @@
+#root #settings {
+  margin-top: 20px;
+
+  .settings-tab > div > * {
+    margin: 20px 20px;
+  }
+
+  .control-text-input {
+    display: block;
+    width: auto;
+  }
+
+  .boolean-control {
+    display: block;
+    margin-bottom: 12px;
+  }
+}

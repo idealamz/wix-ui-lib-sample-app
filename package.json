@@ -1,11 +1,18 @@
 {
   "name": "wix-ui-lib-sample-app",
   "version": "0.0.1",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "react": "^0.12.0",
+    "requirejs": "^2.1.22"
+  },
   "devDependencies": {
     "express": "~4.1.1",
-    "nodemon": "^1.8.1"
-  },
-  "scripts": {
-    "start": "nodemon start.js"
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-react-templates": "^0.1.0",
+    "gulp-sass": "^2.0.4",
+    "react-templates": "^0.2.0"
   }
 }

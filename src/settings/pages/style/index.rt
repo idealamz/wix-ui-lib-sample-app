@@ -1,0 +1,19 @@
+<rt-require dependency="UI" as="UI"/>
+
+<div>
+    <UI.colorPickerSlider
+        label="Color Picker Slider"
+        wix-param="color_picker"
+        startWithOpacity={0.5}
+        onChange="(newVal)=>this.settingsUpdate({'color_picker': newVal})"
+    />
+
+    <UI.fontPicker
+        label="Font Picker"
+        wix-param="font_picker"
+        startWithFont="Site Title"
+        infoTitle="font picker"
+        infoText="font picker"
+        onChange="(newVal)=>this.settingsUpdate({'font_picker': newVal})"
+    />
+</div>

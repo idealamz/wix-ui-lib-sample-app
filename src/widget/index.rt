@@ -1,0 +1,32 @@
+<div>
+    <section id="wix-data-public">
+        <h3>Wix.Data.Public</h3>
+        <pre>
+            <code class="json" dangerouslySetInnerHTML="{{__html: this.stringify(this.state.appWixData)}}"/>
+        </pre>
+    </section>
+
+
+    <section id="wix-param">
+        <h3>wix-param values</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>param name</th>
+                <th>value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr rt-repeat="paramKey in Object.keys(this.state.wixParams)">
+                <td>{paramKey}</td>
+                <td>
+                    <pre>
+                        <code dangerouslySetInnerHTML="{{__html: this.stringify(this.state.wixParams[paramKey])}}"/>
+                    </pre>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
