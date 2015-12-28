@@ -6,6 +6,7 @@ gulp.task('jsx', function () {
     return gulp.src('src/**/*.jsx')
         .pipe(react())
         .pipe(rename(function (path) {
+            path.basename += ".jsx";
             path.extname = ".js";
         }))
         .pipe(gulp.dest('src'));

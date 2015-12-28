@@ -1,4 +1,4 @@
 node_modules
-*.rt.js
+*.jsx.js
 *.css
 *.log
