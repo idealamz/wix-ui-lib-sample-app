@@ -1,7 +1,6 @@
 <rt-require dependency="UI" as="UI"/>
 
 <div>
-
     <UI.button
         label="button"
         onClick="()=>alert('Hello')"
