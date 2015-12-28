@@ -6,6 +6,6 @@ require('./tasks/serve');
 
 gulp.task('default', ['serve', 'css', 'jsx'], function () {
     gulp.watch('src/**/*.scss', ['css']);
-    gulp.watch('src/**/*.jsx.js', ['jsx']);
+    gulp.watch('src/**/*.jsx', ['jsx']);
 });
 

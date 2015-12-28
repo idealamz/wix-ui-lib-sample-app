@@ -1,22 +1,12 @@
 define(['react', 'lodash', 'UI'], function (React, _, UI) {
     return React.createClass({
         displayName: 'template',
-        updateAppData: function (data, callback) {
-            Wix.Data.Public.get('appData', function(currentData) {
-                Wix.Data.Public.set('appData', _.assign(currentData.appData, data), callback);
-            }, function () {
-                Wix.Data.Public.set('appData', data, callback);
-            });
-        },
-        settingsUpdate: function (data) {
-            this.updateAppData(data, Wix.Settings.triggerSettingsUpdatedEvent);
-        },
         render: function () {
             return (
                 <div>
                     <UI.button
                         label="button"
-                        onClick="()=>alert('Hello')"
+                        onClick={()=>alert('Hello')}
                         className="btn-primary"
                         />
 
@@ -24,7 +14,7 @@ define(['react', 'lodash', 'UI'], function (React, _, UI) {
                         label="Drop Down Select"
                         defaultValue="1"
                         wix-param="drop_down_select"
-                        onChange="(newVal)=>this.settingsUpdate({'drop_down_select': newVal})"
+                        onChange={(newVal)=>this.props.settingsUpdate({'drop_down_select': newVal})}
                         options="{[
             { value: '1', label: 'One'},
             { value: '2', label: 'Two'},
@@ -37,23 +27,23 @@ define(['react', 'lodash', 'UI'], function (React, _, UI) {
                     <UI.dock
                         label="Dock"
                         defaultValue="TOP_RIGHT"
-                        onChange="(newVal)=>this.settingsUpdate({'dock': newVal})"
+                        onChange={(newVal)=>this.props.settingsUpdate({'dock': newVal})}
                         />
 
                     <UI.textInput
                         label="Text Input"
                         wix-param="text_input"
-                        validator="{function(val) {return val.length < 15}}"
+                        validator={function(val) {return val.length < 15}}
                         placeholder="placeholder text"
                         infoText="Knowledge is power, this is just a text info"
                         invalidMessage="Invalid Input."
-                        focus="{false}"
-                        onChange="(newVal)=>this.settingsUpdate({'textInput': newVal})"
+                        focus={false}
+                        onChange={(newVal)=>this.props.settingsUpdate({'textInput': newVal})}
                         />
 
                     <UI.languagePicker
                         label="Language Picker"
-                        onChange="(newVal)=>this.settingsUpdate({'language_picker': newVal})"
+                        onChange={(newVal)=>this.props.settingsUpdate({'language_picker': newVal})}
                         infoTitle="info title"
                         infoText="info text"
                         />
