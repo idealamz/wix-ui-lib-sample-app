@@ -8,7 +8,7 @@
     <script src="/node_modules/requirejs/require.js"></script>
     <script src="/config.requirejs.js"></script>
     <script>
-        require(['react', 'jquery', 'settings/index'], function (React, $, settings) {
+        require(['react', 'jquery', 'settings/index.jsx.target'], function (React, $, settings) {
             'use strict';
             $(document).ready(function() {
                 React.render(React.createElement(settings), $('#root').get(0));
