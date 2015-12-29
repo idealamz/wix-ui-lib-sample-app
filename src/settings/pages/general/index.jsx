@@ -1,6 +1,15 @@
 define(['react', 'lodash', 'UI'], function (React, _, UI) {
     return React.createClass({
-        displayName: 'template',
+        updateAppData: function (data, callback) {
+            Wix.Data.Public.get('appData', function(currentData) {
+                Wix.Data.Public.set('appData', _.assign(currentData.appData, data), callback);
+            }, function () {
+                Wix.Data.Public.set('appData', data, callback);
+            });
+        },
+        settingsUpdate: function (data) {
+            this.updateAppData(data, Wix.Settings.triggerSettingsUpdatedEvent);
+        },
         render: function () {
             return (
                 <div>
@@ -8,7 +17,7 @@ define(['react', 'lodash', 'UI'], function (React, _, UI) {
                         label="button"
                         onClick={()=>alert('Hello')}
                         className="btn-primary"
-                        />
+                    />
 
                     <UI.dropDownSelect
                         label="Drop Down Select"
@@ -16,19 +25,19 @@ define(['react', 'lodash', 'UI'], function (React, _, UI) {
                         wix-param="drop_down_select"
                         onChange={(newVal)=>this.props.settingsUpdate({'drop_down_select': newVal})}
                         options="{[
-            { value: '1', label: 'One'},
-            { value: '2', label: 'Two'},
-            { value: '3', label: 'Three'}
-        ]}"
+                            { value: '1', label: 'One'},
+                            { value: '2', label: 'Two'},
+                            { value: '3', label: 'Three'}
+                        ]}"
                         infoTitle="Info Title"
                         infoText="Info Text"
-                        />
+                    />
 
                     <UI.dock
                         label="Dock"
                         defaultValue="TOP_RIGHT"
                         onChange={(newVal)=>this.props.settingsUpdate({'dock': newVal})}
-                        />
+                    />
 
                     <UI.textInput
                         label="Text Input"
@@ -39,14 +48,14 @@ define(['react', 'lodash', 'UI'], function (React, _, UI) {
                         invalidMessage="Invalid Input."
                         focus={false}
                         onChange={(newVal)=>this.props.settingsUpdate({'textInput': newVal})}
-                        />
+                    />
 
                     <UI.languagePicker
                         label="Language Picker"
                         onChange={(newVal)=>this.props.settingsUpdate({'language_picker': newVal})}
                         infoTitle="info title"
                         infoText="info text"
-                        />
+                    />
                 </div>
             )
         }

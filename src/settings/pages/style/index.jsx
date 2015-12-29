@@ -1,16 +1,25 @@
-define(['react', 'lodash', './index.rt'], function (React, _, template) {
+define(['react', 'lodash', 'UI'], function (React, _, UI) {
     return React.createClass({
-        displayName: 'template',
-        updateAppData: function (data, callback) {
-            Wix.Data.Public.get('appData', function(currentData) {
-                Wix.Data.Public.set('appData', _.assign(currentData.appData, data), callback);
-            }, function () {
-                Wix.Data.Public.set('appData', data, callback);
-            });
-        },
-        settingsUpdate: function (data) {
-            this.updateAppData(data, Wix.Settings.triggerSettingsUpdatedEvent);
-        },
-        render: template
+        render: function () {
+            return (
+                <div>
+                    <UI.colorPickerSlider
+                        label="Color Picker Slider"
+                        wix-param="color_picker"
+                        startWithOpacity={0.5}
+                        onChange={(newVal)=>this.props.settingsUpdate({'color_picker': newVal})}
+                    />
+
+                    <UI.fontPicker
+                        label="Font Picker"
+                        wix-param="font_picker"
+                        startWithFont="Site Title"
+                        infoTitle="font picker"
+                        infoText="font picker"
+                        onChange={(newVal)=>this.props.settingsUpdate({'font_picker': newVal})}
+                    />
+                </div>
+            )
+        }
     });
 });

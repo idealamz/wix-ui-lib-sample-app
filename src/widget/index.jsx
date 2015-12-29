@@ -50,41 +50,41 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
         render: function () {
             var wixParamRow = function (key) {
                 return (
-                    React.createElement("tr", null, 
-                        React.createElement("td", null, key), 
-                        React.createElement("td", null, 
-                            React.createElement("pre", null, 
-                                React.createElement("code", {dangerouslySetInnerHTML: {__html: this.stringify(this.state.wixParams[key])}})
-                            )
-                        )
-                    )
+                    <tr>
+                        <td>{key}</td>
+                        <td>
+                            <pre>
+                                <code dangerouslySetInnerHTML={{__html: this.stringify(this.state.wixParams[key])}}/>
+                            </pre>
+                        </td>
+                    </tr>
                 );
             };
 
             return (
-                React.createElement("div", null, 
-                    React.createElement("section", {id: "wix-data-public"}, 
-                        React.createElement("h3", null, "Wix.Data.Public"), 
-                        React.createElement("pre", null, 
-                            React.createElement("code", {dangerouslySetInnerHTML: {__html: this.stringify(this.state.appWixData)}})
-                        )
-                    ), 
+                <div>
+                    <section id="wix-data-public">
+                        <h3>Wix.Data.Public</h3>
+                        <pre>
+                            <code dangerouslySetInnerHTML={{__html: this.stringify(this.state.appWixData)}}/>
+                        </pre>
+                    </section>
 
-                    React.createElement("section", {id: "wix-param"}, 
-                        React.createElement("h3", null, "wix-param values"), 
-                        React.createElement("table", null, 
-                            React.createElement("thead", null, 
-                            React.createElement("tr", null, 
-                                React.createElement("th", null, "param name"), 
-                                React.createElement("th", null, "value")
-                            )
-                            ), 
-                            React.createElement("tbody", null, 
-                                _.map(Object.keys(this.state.wixParams), wixParamRow.bind(this))
-                            )
-                        )
-                    )
-                )
+                    <section id="wix-param">
+                        <h3>wix-param values</h3>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>param name</th>
+                                <th>value</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {_.map(Object.keys(this.state.wixParams), wixParamRow.bind(this))}
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
             );
         }
     });
