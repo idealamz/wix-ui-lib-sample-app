@@ -48,13 +48,14 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
             }
         },
         render: function () {
-            var wixParamRow = function (key) {
+            var _this = this;
+            var wixParamRow = function (value, key) {
                 return (
                     <tr>
                         <td>{key}</td>
                         <td>
                             <pre>
-                                <code dangerouslySetInnerHTML={{__html: this.stringify(this.state.wixParams[key])}}/>
+                                <code dangerouslySetInnerHTML={{__html: _this.stringify(value)}}/>
                             </pre>
                         </td>
                     </tr>
@@ -70,6 +71,19 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
                         </pre>
                     </section>
 
+                    <section id="wix-style">
+                        <style wix-style="abc">
+                            {'#wix-style {' +
+                                'div {' +
+                                    'background-color: {{style.myBgColor white}}' +
+                                '}' +
+                            '}'}
+                        </style>
+                        <div>
+                            hello there!
+                        </div>
+                    </section>
+
                     <section id="wix-param">
                         <h3>wix-param values</h3>
                         <table>
@@ -80,7 +94,7 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
                             </tr>
                             </thead>
                             <tbody>
-                                {_.map(Object.keys(this.state.wixParams), wixParamRow.bind(this))}
+                                {_.map(this.state.wixParams, wixParamRow)}
                             </tbody>
                         </table>
                     </section>

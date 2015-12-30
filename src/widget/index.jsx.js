@@ -48,13 +48,14 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
             }
         },
         render: function () {
-            var wixParamRow = function (key) {
+            var _this = this;
+            var wixParamRow = function (value, key) {
                 return (
                     React.createElement("tr", null, 
                         React.createElement("td", null, key), 
                         React.createElement("td", null, 
                             React.createElement("pre", null, 
-                                React.createElement("code", {dangerouslySetInnerHTML: {__html: this.stringify(this.state.wixParams[key])}})
+                                React.createElement("code", {dangerouslySetInnerHTML: {__html: _this.stringify(value)}})
                             )
                         )
                     )
@@ -70,6 +71,19 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
                         )
                     ), 
 
+                    React.createElement("section", {id: "wix-style"}, 
+                        React.createElement("style", {"wix-style": "abc"}, 
+                            '#wix-style {' +
+                                'div {' +
+                                    'background-color: {{style.myBgColor white}}' +
+                                '}' +
+                            '}'
+                        ), 
+                        React.createElement("div", null, 
+                            "hello there!"
+                        )
+                    ), 
+
                     React.createElement("section", {id: "wix-param"}, 
                         React.createElement("h3", null, "wix-param values"), 
                         React.createElement("table", null, 
@@ -80,7 +94,7 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
                             )
                             ), 
                             React.createElement("tbody", null, 
-                                _.map(Object.keys(this.state.wixParams), wixParamRow.bind(this))
+                                _.map(this.state.wixParams, wixParamRow)
                             )
                         )
                     )
