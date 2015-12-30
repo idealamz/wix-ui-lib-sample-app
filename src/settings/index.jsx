@@ -4,18 +4,22 @@ define([
         'UI',
         'settings/pages/general/index.jsx',
         'settings/pages/style/index.jsx',
-        'settings/pages/sync/index.jsx'
+        'settings/pages/sync/index.jsx',
+        'settings/pages/wix-style-sample/index.jsx'
     ],
     function (React,
               _,
               UI,
               generalTab,
               styleTab,
-              syncTab) {
+              syncTab,
+              wixStyleSample) {
+
         var pages = {
-            general: generalTab,
-            style: styleTab,
-            sync: syncTab
+            'General Settings': generalTab,
+            'Style Settings': styleTab,
+            'Sync Options': syncTab,
+            'Wix-Style Sample': wixStyleSample
         };
 
         return React.createClass({
@@ -30,31 +34,35 @@ define([
                 this.updateAppData(data, Wix.Settings.triggerSettingsUpdatedEvent);
             },
             render: function () {
+                var label = function (tab, label) {
+                    return (
+                        <UI.tabs.label for={label} class={label}>
+                            {label}
+                        </UI.tabs.label>
+                    )
+                };
+
+                var tab = function (tab, label) {
+                    var _this = this;
+                    var tabs = {
+                        current: tab
+                    };
+                    return (
+                        <UI.tabs.tab name={label} className="settings-tab">
+                            <tabs.current settingsUpdate={_this.settingsUpdate}/>
+                        </UI.tabs.tab>
+                    )
+                };
+
                 return (
-                    <UI.tabs.holder defaultTab="first"
+                    <UI.tabs.holder defaultTab={Object.keys(pages)[0]}
                                     className="top"
                                     onChange={(newVal)=>console.log(newVal + ' selected')}>
                         <UI.tabs.header>
-                            <UI.tabs.label for="first" class="first">
-                                General Settings
-                            </UI.tabs.label>
-                            <UI.tabs.label for="second" class="second">
-                                Style Settings
-                            </UI.tabs.label>
-                            <UI.tabs.label for="third" class="third">
-                                Sync Options
-                            </UI.tabs.label>
+                            {_.map(pages, label)}
                         </UI.tabs.header>
                         <UI.tabs.content>
-                            <UI.tabs.tab name="first" className="settings-tab">
-                                <pages.general settingsUpdate={this.settingsUpdate}/>
-                            </UI.tabs.tab>
-                            <UI.tabs.tab name="second" className="settings-tab">
-                                <pages.style settingsUpdate={this.settingsUpdate}/>
-                            </UI.tabs.tab>
-                            <UI.tabs.tab name="third" className="settings-tab">
-                                <pages.sync settingsUpdate={this.settingsUpdate}/>
-                            </UI.tabs.tab>
+                            {_.map(pages, tab)}
                         </UI.tabs.content>
                     </UI.tabs.holder>
                 )

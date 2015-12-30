@@ -71,16 +71,9 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
                         )
                     ), 
 
-                    React.createElement("section", {id: "wix-style"}, 
-                        React.createElement("style", {"wix-style": "abc"}, 
-                            '#wix-style {' +
-                                'div {' +
-                                    'background-color: {{style.myBgColor white}}' +
-                                '}' +
-                            '}'
-                        ), 
+                    React.createElement("section", {id: "wix-style-sample"}, 
                         React.createElement("div", null, 
-                            "hello there!"
+                            "Hello Wix-Style!"
                         )
                     ), 
 

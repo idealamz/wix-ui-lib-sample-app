@@ -71,16 +71,9 @@ define(['react', 'lodash', 'Wix'], function (React, _, Wix) {
                         </pre>
                     </section>
 
-                    <section id="wix-style">
-                        <style wix-style="abc">
-                            {'#wix-style {' +
-                                'div {' +
-                                    'background-color: {{style.myBgColor white}}' +
-                                '}' +
-                            '}'}
-                        </style>
+                    <section id="wix-style-sample">
                         <div>
-                            hello there!
+                            Hello Wix-Style!
                         </div>
                     </section>
 
