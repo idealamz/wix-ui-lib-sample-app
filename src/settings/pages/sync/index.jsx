@@ -67,6 +67,7 @@ define(['react', 'lodash', 'UI'], function (React, _, UI) {
 
                     <UI.stepper
                         label="Stepper"
+                        wix-param="stepper"
                         defaultValue={20}
                         units="km"
                         min="0"

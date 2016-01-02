@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Document</title>
 
-    <script src="/node_modules/react/dist/react-with-addons.js"></script>
     <script src="/node_modules/requirejs/require.js"></script>
     <script src="/config.requirejs.js"></script>
     <script>
@@ -18,9 +17,12 @@
 
     <style wix-style>
         #wix-style-sample div {
-            background: {{style.color_picker color-1 yellow}};
-            {{style.font_picker Title}}
-            border: {{}}
+            background: {{style.style_sample_background_color color-1}};
+            color: {{style.style_sample_text_color color-2}};
+            {{style.style_sample_font Title}}
+            height: {{style.style_sample_box_height}}px;
+            width: {{style.style_sample_box_width}}%;
+            border: 2px solid blue;
         }
     </style>
 </head>
