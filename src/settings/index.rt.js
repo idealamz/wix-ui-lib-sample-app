@@ -4,8 +4,9 @@ define([
     'UI',
     'settings/pages/general/index',
     'settings/pages/style/index',
-    'settings/pages/sync/index'
-], function (React, _, UI, generalPage, stylePage, syncPage) {
+    'settings/pages/sync/index',
+    'settings/pages/wix-style-sample/index'
+], function (React, _, UI, generalPage, stylePage, syncPage, wixStyleSample) {
     'use strict';
     function onChange1(newVal) {
         console.log(newVal + ' selected');
@@ -24,7 +25,10 @@ define([
         }, 'Style Settings'), React.createElement(UI.tabs.label, {
             'htmlFor': 'third',
             'className': 'third'
-        }, 'Sync Options')), React.createElement(UI.tabs.content, {}, React.createElement(UI.tabs.tab, {
+        }, 'Sync Options'), React.createElement(UI.tabs.label, {
+            'htmlFor': 'forth',
+            'className': 'third'
+        }, 'Wix Style Sample')), React.createElement(UI.tabs.content, {}, React.createElement(UI.tabs.tab, {
             'name': 'first',
             'className': 'settings-tab'
         }, React.createElement(generalPage, {})), React.createElement(UI.tabs.tab, {
@@ -33,6 +37,9 @@ define([
         }, React.createElement(stylePage, {})), React.createElement(UI.tabs.tab, {
             'name': 'third',
             'className': 'settings-tab'
-        }, React.createElement(syncPage, {})))));
+        }, React.createElement(syncPage, {})), React.createElement(UI.tabs.tab, {
+            'name': 'forth',
+            'className': 'settings-tab'
+        }, React.createElement(wixStyleSample, {})))));
     };
 });

@@ -2,6 +2,7 @@
 <rt-require dependency="settings/pages/general/index" as="generalPage"/>
 <rt-require dependency="settings/pages/style/index" as="stylePage"/>
 <rt-require dependency="settings/pages/sync/index" as="syncPage"/>
+<rt-require dependency="settings/pages/wix-style-sample/index" as="wixStyleSample"/>
 
 
 <div id="settings">
@@ -11,6 +12,7 @@
             <UI.tabs.label for="first" class="first">General Settings</UI.tabs.label>
             <UI.tabs.label for="second" class="second">Style Settings</UI.tabs.label>
             <UI.tabs.label for="third" class="third">Sync Options</UI.tabs.label>
+            <UI.tabs.label for="forth" class="third">Wix Style Sample</UI.tabs.label>
         </UI.tabs.header>
 
         <UI.tabs.content>
@@ -25,6 +27,10 @@
 
             <UI.tabs.tab name="third" class="settings-tab">
                 <syncPage/>
+            </UI.tabs.tab>
+
+            <UI.tabs.tab name="forth" class="settings-tab">
+                <wixStyleSample/>
             </UI.tabs.tab>
 
         </UI.tabs.content>

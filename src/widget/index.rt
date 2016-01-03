@@ -6,6 +6,11 @@
         </pre>
     </section>
 
+    <section id="wix-style-sample">
+        <div>
+            Hello Wix-Style!
+        </div>
+    </section>
 
     <section id="wix-param">
         <h3>wix-param values</h3>
