@@ -11,8 +11,8 @@
     "express": "~4.1.1",
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.4",
+    "react-templates": "^0.2.0",
     "gulp-react-templates": "^0.1.0",
-    "gulp-sass": "^2.0.4",
-    "react-templates": "^0.2.0"
+    "gulp-sass": "^2.0.4"
   }
 }
